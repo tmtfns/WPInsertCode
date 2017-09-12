@@ -115,7 +115,7 @@ if( ! class_exists('WPInsertCode') ) {
          */  
         
         public function register_scripts() {
-            wp_register_script( 'WPInsertCode_script', plugins_url( 'js/app.js', __FILE__ ), NULL, NULL, TRUE);
+            wp_register_script( 'WPInsertCode_script', plugins_url( 'js/app.js', __FILE__ ), array('jquery'), NULL, TRUE);
             $opt = get_option('WPInsertCode_options');
             // second way to load css file
             $opt['cssUrl'] = plugins_url( 'css/style2.css', __FILE__ );
@@ -151,7 +151,7 @@ if( ! class_exists('WPInsertCode') ) {
          * @param  array
          * @return array         
          */  
-        public function sanitize_options ($raw_options) {
+        public function sanitize_options ($raw_options) { 
             $result = array();
             foreach($raw_options as $k => $v){
                 // you can use your own valodation rules for options
